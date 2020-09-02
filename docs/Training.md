@@ -20,6 +20,18 @@ $ npm install --save-dev react-router react-router-dom
 $ npm install --save-dev classnames
 ```
 
+- redux に関するインストール
+
+```
+$ npm install --save-dev react-redux redux redux-logger
+```
+
+- axios に関するインストール
+
+```
+$ npm install --save-dev axios redux-promise-middleware
+```
+
 - html-webpack-plugin、mini-css-extract-plugin に関するインストール
 
 ```
@@ -45,4 +57,10 @@ $ npm install --save-dev cookie-parser
 
 ```
 $ npm install --save-dev concurrently
+```
+
+- webpack-marge のインストール
+
+```
+$ npm install --save-dev webpack-merge
 ```
