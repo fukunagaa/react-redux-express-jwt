@@ -10,6 +10,10 @@ export default function (state = userInitialState, action) {
         ...state,
         // isLogin: action.payload.isLogin,
       };
+    case LOAD_LOGIN_REJECTED:
+      return {
+        ...state,
+      };
     default:
       return state;
   }
