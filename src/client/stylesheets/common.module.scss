@@ -1,0 +1,102 @@
+/** 中央寄せ **/
+.textAlignCenter {
+    text-align: center;
+}
+
+/** 画像をselect不可 **/
+.noSelect {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/** 画像を白くする **/
+.white {
+    filter: invert(88%) sepia(61%) saturate(0%) hue-rotate(229deg) brightness(107%) contrast(101%);
+}
+
+/** テキスト入力 **/
+.inputBigArea {
+    margin-top: 16px;
+    margin-bottom: 8px;
+    width: 100%;
+    box-sizing: content-box;
+}
+
+.input-flex-row-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    width: 100%;
+    box-sizing: content-box;
+}
+
+.input-small-area {
+    max-width: 49%;
+}
+
+/** submitボタン **/
+.submitBtnArea {
+    margin-top: 16px;
+    margin-bottom: 8px;
+    width: 100%;
+    box-sizing: content-box;
+}
+
+.submitBtn {
+    margin: 24px 0px 16px;
+    padding: 6px 16px;
+    width: 100%;
+    background-color: rgb(78, 181, 250);
+    border: none;
+    box-shadow: 0 0 8px rgb(128, 128, 128);
+    font-size: 15px;
+    color: aliceblue;
+    font-weight: bold;
+    box-sizing: border-box;
+    border-radius: 4px;
+    line-height: 1.75em;
+}
+
+/** checkbox **/
+.checkboxContainer {
+    margin-top: 30px;
+}
+
+.checkboxInput {
+    display: none;
+}
+
+.checkboxParts {
+    padding-left: 20px;
+    position: relative;
+    margin-right: 20px;
+}
+
+.checkboxParts::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #999;
+    border-radius: 4px;
+}
+
+.checkboxInput:checked+.checkboxParts::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: 5px;
+    width: 7px;
+    height: 14px;
+    transform: rotate(40deg);
+    border-bottom: 3px solid;
+    border-right: 3px solid;
+}

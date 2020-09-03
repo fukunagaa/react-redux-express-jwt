@@ -1,0 +1,53 @@
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentsContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0px 24px;
+    margin: 0px 300px 0px 301px;
+}
+
+.formContainer {
+    max-width: 440px;
+    min-width: 300px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.titleContainer {
+    max-width: 440px;
+    min-width: 300px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.logoCircleArea {
+    margin: 30px auto;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(220, 0, 78);
+}
+
+.loginLogo {
+    padding-top: 9px;
+    width: 30px;
+    height: 30px;
+}
+
+.linkLoginContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
