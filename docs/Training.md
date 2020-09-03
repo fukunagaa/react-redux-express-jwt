@@ -45,6 +45,12 @@ $ npm install --save-dev css-loader
 $ npm install --save-dev sass-loader sass style-loader
 ```
 
+- file-loader に関するインストール
+
+```
+$ npm install --save-dev file-loader
+```
+
 ### サーバ
 
 - express に関するインストール
@@ -63,4 +69,16 @@ $ npm install --save-dev concurrently
 
 ```
 $ npm install --save-dev webpack-merge
+```
+
+- pg のインストール
+
+```
+$ npm install --save-dev pg
+```
+
+- ハッシュ化に関するインストール
+
+```
+$ npm install --save-dev bcrypt
 ```
