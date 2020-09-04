@@ -1,17 +1,21 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Layout from "./components/Layout";
 import Login from "./components/Login";
+import Home from "./components/Home";
 
 const App = () => {
-  const user = useSelector((state) => state.user);
-  console.log("isLogin : " + user.isLogin);
+  const { isLogin } = useSelector((state) => state.user);
+  console.log("isLogin : " + isLogin);
   return (
     <Router>
       <Layout>
         <Route exact path="/">
-          <Login />
+          {isLogin ? <Home /> : <Redirect to={"/login"} />}
+        </Route>
+        <Route exact path="/login">
+          {isLogin ? <Redirect to={"/"} /> : <Login />}
         </Route>
       </Layout>
     </Router>
