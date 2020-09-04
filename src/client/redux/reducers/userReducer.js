@@ -8,7 +8,9 @@ export default function (state = userInitialState, action) {
       console.log(data);
       return {
         ...state,
-        // isLogin: action.payload.isLogin,
+        isLogin: data.isLogin,
+        isAdmin: data.isAdmin,
+        isUser: data.isUser,
       };
     case LOAD_LOGIN_REJECTED:
       return {
