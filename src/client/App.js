@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import Layout from "./components/Layout";
 import Login from "./components/Login";
 import Home from "./components/Home";
+import Signup from "./components/Signup";
 
 const App = () => {
   const { isLogin } = useSelector((state) => state.user);
@@ -16,6 +17,9 @@ const App = () => {
         </Route>
         <Route exact path="/login">
           {isLogin ? <Redirect to={"/"} /> : <Login />}
+        </Route>
+        <Route exact path="/signup">
+          {isLogin ? <Redirect to={"/"} /> : <Signup />}
         </Route>
       </Layout>
     </Router>
