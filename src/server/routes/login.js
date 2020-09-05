@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const dbAccess = require("../db/dbAccess");
 const { encode, compare } = require("../utils/hash");
-const { ADMIN_ROLE, USER_ROLE } = require("../utils/constant");
+const { ADMIN_ROLE, USER_ROLE, HTTPSTATUS } = require("../utils/constant");
 
 /* POST login listing. */
 router.post("/", async (req, res, next) => {
@@ -14,7 +14,7 @@ router.post("/", async (req, res, next) => {
   const userInfo = await dbAccess.userAuthentication(email);
   console.log(userInfo);
   if (userInfo == undefined || userInfo == null) {
-    res.status(401).json({ message: "User is not found" });
+    res.status(HTTPSTATUS.UNAUTHORIZED.CODE).json({ message: HTTPSTATUS.UNAUTHORIZED.MESSAGE });
   } else {
     const isLogin = await compare(password, userInfo.password);
     if (isLogin) {
@@ -36,9 +36,9 @@ router.post("/", async (req, res, next) => {
         isAdmin,
         isUser,
       };
-      res.status(200).json(body);
+      res.status(HTTPSTATUS.SUCCESS.CODE).json(body);
     } else {
-      res.status(401).json({ message: "Authentication error" });
+      res.status(HTTPSTATUS.UNAUTHORIZED.CODE).json({ message: HTTPSTATUS.UNAUTHORIZED.MESSAGE });
     }
   }
 });
