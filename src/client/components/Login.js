@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import className from "classnames";
@@ -9,10 +9,10 @@ import commonStyles from "../Stylesheets/common.module.scss";
 import placeholderStyles from "../stylesheets/inputPlaceholder.module.scss";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPasswoord] = useState("");
   const dispatch = useDispatch();
   const login = () => {
-    const email = "admin@example.com";
-    const password = "admin";
     dispatch(loadLogin({ email, password }));
   };
   return (
@@ -36,6 +36,8 @@ const Login = () => {
                 placeholder="&nbsp;"
                 required
                 className={placeholderStyles.labelInputPlaceholder}
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
               />
               <span className={placeholderStyles.labelPlaceholder}>Email Address *</span>
             </label>
@@ -43,12 +45,14 @@ const Login = () => {
           <div className={commonStyles.inputBigArea}>
             <label className={placeholderStyles.labelInputPlaceholder}>
               <input
-                type="text"
+                type="password"
                 name="password"
                 id="password"
                 placeholder="&nbsp;"
                 required
                 className={placeholderStyles.labelInputPlaceholder}
+                value={password}
+                onChange={(event) => setPasswoord(event.target.value)}
               />
               <span className={placeholderStyles.labelPlaceholder}>Password *</span>
             </label>
