@@ -1,0 +1,40 @@
+body {
+    font-family: sans-serif;
+}
+
+nav {
+    background-color: #222222;
+    color: white;
+}
+
+nav ul {
+    display: flex;
+    flex-flow: row;
+    margin: 0;
+    padding: 6px;
+    list-style-type: none;
+}
+
+nav a {
+    display: block;
+    border-radius: 4px;
+    padding: 12px 24px;
+    color: white;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: #29634c;
+}
+
+.login {
+    margin-left: auto;
+}
+
+.account {
+    margin-left: auto;
+}
+
+.active {
+    background-color: #29634c;
+}
