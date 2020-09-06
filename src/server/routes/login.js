@@ -21,11 +21,11 @@ router.post("/", async (req, res, next) => {
       const roles = userInfo.roles.split(",");
       let isAdmin = false;
       let isUser = false;
-      roles.forEach(function (value) {
-        if (value == ADMIN_ROLE) {
+      roles.forEach((role) => {
+        if (role == ADMIN_ROLE) {
           isAdmin = true;
         }
-        if (value == USER_ROLE) {
+        if (role == USER_ROLE) {
           isUser = true;
         }
       });
