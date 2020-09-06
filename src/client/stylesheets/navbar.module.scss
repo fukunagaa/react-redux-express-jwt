@@ -3,28 +3,43 @@ body {
 }
 
 nav {
-    background-color: #222222;
-    color: white;
-}
+    background-color: #ffffff;
+    color: rgb(27, 27, 27);
 
-nav ul {
-    display: flex;
-    flex-flow: row;
-    margin: 0;
-    padding: 6px;
-    list-style-type: none;
-}
+    ul {
+        display: flex;
+        flex-flow: row;
+        margin: 0;
+        list-style-type: none;
+        border-bottom: solid rgb(146, 137, 137) 1px
+    }
 
-nav a {
-    display: block;
-    border-radius: 4px;
-    padding: 12px 24px;
-    color: white;
-    text-decoration: none;
-}
+    a {
+        display: block;
+        border-radius: 4px;
+        padding: 12px 24px;
+        color: rgb(27, 27, 27);
+        text-decoration: none;
+        background-color: #f0f0f0;
+    }
 
-nav li a:hover {
-    background-color: #29634c;
+    li {
+        margin: {
+            bottom: .5rem;
+            right: .5rem;
+        }
+
+        .loginColor {
+            background-color: rgb(78, 181, 250);
+            border-radius: 10px;
+        }
+
+        a:hover {
+            background-color: #828a86;
+            border-radius: 10px;
+            border-color: transparent
+        }
+    }
 }
 
 .login {
@@ -36,5 +51,7 @@ nav li a:hover {
 }
 
 .active {
-    background-color: #29634c;
+    background-color: #99a39e;
+    border-radius: 10px;
+    border-color: transparent
 }
