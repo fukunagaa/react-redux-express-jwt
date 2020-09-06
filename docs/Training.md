@@ -51,6 +51,12 @@ $ npm install --save-dev sass-loader sass style-loader
 $ npm install --save-dev file-loader
 ```
 
+- ファイルの使用状況を調べる
+
+```
+$ npm install --save-dev webpack-bundle-analyzer
+```
+
 ### サーバ
 
 - express に関するインストール
