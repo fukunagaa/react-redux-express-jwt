@@ -22,6 +22,10 @@ module.exports = {
       CODE: 404,
       MESSAGE: "リソースが見つかりません。",
     },
+    CONFLICT: {
+      CODE: 409,
+      MESSAGE: "リクエストに問題があります。",
+    },
     ERROR: {
       CODE: 500,
       MESSAGE: "サーバ内部でエラーが発生しました。",

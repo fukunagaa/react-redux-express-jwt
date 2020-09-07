@@ -1,14 +1,24 @@
-import { LOAD_LOGIN } from "./actionTypes";
+import { LOAD_LOGIN, SIGNUP } from "./actionTypes";
 import axios from "axios";
 
 /**
  * メールアドレスとパスワードを入力してサーバからログイン情報を取得する
- * メールアドレス : email
- * パスワード : password
+ * @param {クエリー} param0
  */
 export const loadLogin = ({ email, password }) => {
   return {
     type: LOAD_LOGIN,
     payload: axios.post("/login", { email, password }),
+  };
+};
+
+/**
+ * メールアドレス、パスワード、ユーザ名、ファーストネーム、ラストネームを入力してサインアップする
+ * @param {クエリー} param0
+ */
+export const signupRequest = ({ email, userName, password, firstName, lastName }) => {
+  return {
+    type: SIGNUP,
+    payload: axios.post("/signup", { email, userName, password, firstName, lastName }),
   };
 };
