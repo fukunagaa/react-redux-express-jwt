@@ -3,6 +3,7 @@ const router = express.Router();
 const dbAccess = require("../db/dbAccess");
 const { encode, compare } = require("../utils/hash");
 const { ADMIN_ROLE, USER_ROLE, HTTPSTATUS } = require("../utils/constant");
+const { cookie } = require("../utils/config");
 
 /* POST login listing. */
 router.post("/", async (req, res, next) => {
@@ -29,6 +30,11 @@ router.post("/", async (req, res, next) => {
           isUser = true;
         }
       });
+      req.session.name = userInfo.name;
+      req.session.email = userInfo.email;
+      req.session.isAdmin = isAdmin;
+      req.session.isUser = isUser;
+      req.session.cookie.maxAge = cookie.maxAge;
       const body = {
         email: userInfo.email,
         userName: userInfo.name,
