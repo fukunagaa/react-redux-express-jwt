@@ -88,3 +88,9 @@ $ npm install --save-dev pg
 ```
 $ npm install --save-dev bcrypt
 ```
+
+- session に関するインストール
+
+```
+$ npm install --save-dev express-session connect-redis redis
+```
