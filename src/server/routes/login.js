@@ -3,7 +3,7 @@ const router = express.Router();
 const dbAccess = require("../db/dbAccess");
 const { encode, compare } = require("../utils/hash");
 const { ADMIN_ROLE, USER_ROLE, HTTPSTATUS } = require("../utils/constant");
-const { cookie } = require("../utils/config");
+const { maxAge } = require("../utils/config");
 
 /* POST login listing. */
 router.post("/", async (req, res, next) => {
@@ -34,7 +34,7 @@ router.post("/", async (req, res, next) => {
       req.session.email = userInfo.email;
       req.session.isAdmin = isAdmin;
       req.session.isUser = isUser;
-      req.session.cookie.maxAge = cookie.maxAge;
+      req.session.cookie.maxAge = maxAge;
       const body = {
         email: userInfo.email,
         userName: userInfo.name,
@@ -46,6 +46,18 @@ router.post("/", async (req, res, next) => {
     } else {
       res.status(HTTPSTATUS.UNAUTHORIZED.CODE).json({ message: HTTPSTATUS.UNAUTHORIZED.MESSAGE });
     }
+  }
+});
+
+router.get("/ok", (req, res, next) => {
+  console.log(req.session);
+  console.log(req.sessionID);
+  const date = new Date();
+  if (req.session.cookie._expires > date) {
+    req.session.updatedTime = date;
+    res.status(HTTPSTATUS.SUCCESS.CODE).json({ message: HTTPSTATUS.SUCCESS.MESSAGE });
+  } else {
+    res.status(HTTPSTATUS.UNAUTHORIZED.CODE).json({ message: HTTPSTATUS.UNAUTHORIZED.MESSAGE });
   }
 });
 
