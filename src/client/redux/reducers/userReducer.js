@@ -1,5 +1,5 @@
 import { userInitialState } from "../initialState";
-import { LOAD_LOGIN_PENDING, LOAD_LOGIN_FULFILLED, LOAD_LOGIN_REJECTED } from "../actionTypes";
+import { LOAD_LOGIN_FULFILLED, LOAD_LOGIN_REJECTED, SIGNUP_FULFILLED, SIGNUP_REJECTED } from "../actionTypes";
 
 export default function (state = userInitialState, action) {
   switch (action.type) {
@@ -15,6 +15,22 @@ export default function (state = userInitialState, action) {
     case LOAD_LOGIN_REJECTED:
       return {
         ...state,
+      };
+    case SIGNUP_FULFILLED:
+      return {
+        ...state,
+        signupState: {
+          message: "アカウントが作成されました。",
+          errorFlag: false,
+        },
+      };
+    case SIGNUP_REJECTED:
+      return {
+        ...state,
+        signupState: {
+          message: "** アカウントが既に存在します **",
+          errorFlag: true,
+        },
       };
     default:
       return state;
