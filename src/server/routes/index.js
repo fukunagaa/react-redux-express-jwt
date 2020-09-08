@@ -7,7 +7,15 @@ const options = {
 };
 
 /* GET home page. */
-router.get("/*", (req, res, next) => {
+router.get("/", (req, res, next) => {
+  res.sendFile("index.html", options);
+});
+
+router.get("/login", (req, res, next) => {
+  res.sendFile("index.html", options);
+});
+
+router.get("/signup", (req, res, next) => {
   res.sendFile("index.html", options);
 });
 
