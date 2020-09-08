@@ -13,7 +13,8 @@ router.post("/", async (req, res, next) => {
   if (countByEmail == 0 && countByName == 0) {
     const hashedPassword = encode(password);
     await dbAccess.insertAccount(email, userName, hashedPassword);
-    res.status(HTTPSTATUS.SUCCESS.CODE).json(body);
+    console.log("return success");
+    res.status(HTTPSTATUS.SUCCESS.CODE).json({ message: HTTPSTATUS.SUCCESS.MESSAGE });
   } else {
     res.status(HTTPSTATUS.CONFLICT.CODE).json({ message: HTTPSTATUS.CONFLICT.MESSAGE });
   }
