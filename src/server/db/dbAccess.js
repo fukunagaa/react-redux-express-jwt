@@ -36,7 +36,6 @@ module.exports = {
       await client.connect();
       console.log("Connected successfully in async");
       const allRows = await client.query("select count(*) from account_table where email=$1", [email]);
-      console.log(allRows);
       return allRows.rows[0].count;
     } catch (err) {
       console.log("DB Access Error: ", err);
