@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import className from "classnames";
 import Icon from "../assets/create-signup.svg";
@@ -16,6 +16,7 @@ const Signup = () => {
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const { signupState } = useSelector((state) => state.user);
   const dispach = useDispatch();
   const signup = () => {
     if (password1 != password2) {
@@ -24,6 +25,7 @@ const Signup = () => {
       dispach(signupRequest({ email, userName, password: password1, firstName, lastName }));
     }
   };
+  const fetchMessage = signupState.errorFlag ? commonStyles.errorMessage : commonStyles.successMessage;
   const errorElement =
     errorMessage.length == 0 ? (
       <span></span>
@@ -44,6 +46,9 @@ const Signup = () => {
           <h3 className={commonStyles.textAlignCenter}>Sign up</h3>
         </div>
         <div className={commonStyles.formContainer}>
+          <div className={commonStyles.textAlignCenter}>
+            <span className={fetchMessage}>{signupState.message}</span>
+          </div>
           {errorElement}
           <div className={commonStyles.inputFlexRowContainer}>
             <div className={commonStyles.inputSmallArea}>
