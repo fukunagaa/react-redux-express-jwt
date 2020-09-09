@@ -7,3 +7,5 @@ export const SIGNUP = "SIGNUP";
 export const SIGNUP_PENDING = "SIGNUP_PENDING";
 export const SIGNUP_FULFILLED = "SIGNUP_FULFILLED";
 export const SIGNUP_REJECTED = "SIGNUP_REJECTED";
+
+export const CHANGE_STATUS = "CHANGE_STATUS";

@@ -1,4 +1,4 @@
-import { LOAD_LOGIN, SIGNUP } from "./actionTypes";
+import { LOAD_LOGIN, SIGNUP, CHANGE_STATUS } from "./actionTypes";
 import axios from "axios";
 
 /**
@@ -20,5 +20,16 @@ export const signupRequest = ({ email, userName, password, firstName, lastName }
   return {
     type: SIGNUP,
     payload: axios.post("/signup", { email, userName, password, firstName, lastName }),
+  };
+};
+
+export const changeLoginStatus = ({ isLogin, isAdmin, isUser }) => {
+  return {
+    type: CHANGE_STATUS,
+    payload: {
+      isLogin,
+      isAdmin,
+      isUser,
+    },
   };
 };
