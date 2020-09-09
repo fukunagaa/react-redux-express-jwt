@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { changeLoginStatus } from "../redux/actions";
 import { Redirect } from "react-router";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [redirectTo, setRedirectTo] = useState(false);
@@ -25,6 +26,7 @@ const Home = () => {
     return (
       <div>
         <h1>Home Screen</h1>
+        <Link to="/postArticle">投稿</Link>
       </div>
     );
   }
