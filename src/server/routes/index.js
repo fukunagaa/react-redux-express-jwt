@@ -11,6 +11,10 @@ router.get("/", (req, res, next) => {
   res.sendFile("index.html", options);
 });
 
+router.get("/postArticle", (req, res, next) => {
+  res.sendFile("index.html", options);
+});
+
 router.get("/login", (req, res, next) => {
   res.sendFile("index.html", options);
 });
