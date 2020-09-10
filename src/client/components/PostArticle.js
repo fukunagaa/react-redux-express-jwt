@@ -1,10 +1,8 @@
 import React, { useState, useCallback } from "react";
 import { useDispatch } from "react-redux";
-import axios from "axios";
 import Cropper from "react-easy-crop";
 import postArticleStyles from "../stylesheets/postArticle.module.scss";
 import commonStyles from "../Stylesheets/common.module.scss";
-import signupStyles from "../Stylesheets/signup.module.scss";
 import placeholderStyles from "../stylesheets/inputPlaceholder.module.scss";
 import Icon from "../assets/add_task.svg";
 import getCroppedImg from "./CropImage";
@@ -54,7 +52,7 @@ const Home = () => {
             <div className={commonStyles.textAlignCenter}>
               <div className={commonStyles.logoCircleArea}>
                 <img
-                  className={`${commonStyles.noSelect} ${commonStyles.white} ${signupStyles.signupLogo}`}
+                  className={`${commonStyles.noSelect} ${commonStyles.white} ${postArticleStyles.logo}`}
                   src={Icon}
                 />
               </div>
