@@ -2,10 +2,10 @@ import React from "react";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Layout from "./components/Layout";
-import Login from "./components/Login";
-import Home from "./components/Home";
-import Signup from "./components/Signup";
-import PostArticle from "./components/PostArticle";
+import Login from "./pages/Login";
+import Home from "./pages/Home";
+import Signup from "./pages/Signup";
+import PostArticle from "./pages/PostArticle";
 
 const App = () => {
   const { isLogin } = useSelector((state) => state.user);

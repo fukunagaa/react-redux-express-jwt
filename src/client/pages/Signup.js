@@ -40,7 +40,7 @@ const Signup = () => {
         <div className={commonStyles.titleContainer}>
           <div className={commonStyles.textAlignCenter}>
             <div className={commonStyles.logoCircleArea}>
-              <img className={`${commonStyles.noSelect} ${commonStyles.white} ${signupStyles.signupLogo}`} src={Icon} />
+              <img className={`${commonStyles.noSelect} ${commonStyles.white} ${signupStyles.logo}`} src={Icon} />
             </div>
           </div>
           <h3 className={commonStyles.textAlignCenter}>Sign up</h3>
