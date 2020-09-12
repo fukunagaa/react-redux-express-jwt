@@ -5,7 +5,7 @@ import placeholderStyles from "../stylesheets/inputPlaceholder.module.scss";
 import Icon from "../assets/add_task.svg";
 import CropperArea from "../components/CropperArea";
 
-const Home = () => {
+const PostArticle = () => {
   const [contents, setContents] = useState("");
   const [title, setTitle] = useState("");
   const [selectImage, setSelectImage] = useState("");
@@ -103,4 +103,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default PostArticle;
