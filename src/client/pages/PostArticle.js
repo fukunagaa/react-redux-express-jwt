@@ -46,7 +46,7 @@ const PostArticle = () => {
           </div>
           <div className={commonStyles.formContainer}>
             <div className={commonStyles.textAlignCenter}>
-              <span>{postArticleState.message}</span>
+              <span className={commonStyles.successMessage}>{postArticleState.message}</span>
             </div>
             <div className={commonStyles.inputBigArea}>
               <label className={placeholderStyles.labelInputPlaceholder}>
