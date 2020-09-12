@@ -7,3 +7,7 @@ export const userInitialState = {
     errorFlag: false,
   },
 };
+
+export const articlesInitialState = {
+  articles: [],
+};

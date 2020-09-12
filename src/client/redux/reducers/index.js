@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
 import user from "./userReducer";
-import dummy from "./dummyReducer";
+import articles from "./articlesReducer";
 
-export default combineReducers({ user, dummy });
+export default combineReducers({ user, articles });

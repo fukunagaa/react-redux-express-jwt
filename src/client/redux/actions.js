@@ -1,4 +1,4 @@
-import { LOAD_LOGIN, SIGNUP, CHANGE_STATUS } from "./actionTypes";
+import { LOAD_LOGIN, SIGNUP, CHANGE_STATUS, POST_ARTICLE } from "./actionTypes";
 import axios from "axios";
 
 /**
@@ -31,5 +31,18 @@ export const changeLoginStatus = ({ isLogin, isAdmin, isUser }) => {
       isAdmin,
       isUser,
     },
+  };
+};
+
+/**
+ * タイトル、内容、画像を登録する
+ * @param {タイトル} title
+ * @param {内容} contents
+ * @param {画像} image
+ */
+export const postArticleRequest = ({ title, contents, image }) => {
+  return {
+    type: POST_ARTICLE,
+    payload: axios.post("/article/create", { title, contents, image }),
   };
 };
