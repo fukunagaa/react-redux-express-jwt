@@ -10,7 +10,7 @@ const NavBar = ({ location }) => {
   const homeClass = location.pathname === "/" ? navbarStyles.active : "";
   const postArticleClass = location.pathname.match(/^\/postArticle/) ? navbarStyles.active : "";
   const userClass = location.pathname.match(/^\/user/) ? navbarStyles.active : "";
-  const adminClass = location.pathname.match(/^\/admin/) ? navbarStyles.active : "";
+  const getArticle = location.pathname.match(/^\/getArticle/) ? navbarStyles.active : "";
   const loginClass = location.pathname.match(/^\/login/) ? navbarStyles.active : "";
   const accountClass = location.pathname.match(/^\/account/) ? navbarStyles.active : "";
   const rightNav = isLogin ? (
@@ -33,11 +33,11 @@ const NavBar = ({ location }) => {
         <li className={postArticleClass}>
           <Link to="/postArticle">投稿</Link>
         </li>
+        <li className={getArticle}>
+          <Link to="/getArticle">閲覧</Link>
+        </li>
         <li className={userClass}>
           <Link to="/user">ユーザ</Link>
-        </li>
-        <li className={adminClass}>
-          <Link to="/admin">管理者</Link>
         </li>
         {rightNav}
       </ul>

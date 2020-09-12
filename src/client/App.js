@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import PostArticle from "./pages/PostArticle";
+import GetArticle from "./pages/GetArticle";
 
 const App = () => {
   const { isLogin } = useSelector((state) => state.user);
@@ -24,6 +25,9 @@ const App = () => {
         </Route>
         <Route exact path="/postArticle">
           <PostArticle />
+        </Route>
+        <Route exact path="/getArticle">
+          <GetArticle />
         </Route>
       </Layout>
     </Router>
