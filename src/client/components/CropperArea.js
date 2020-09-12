@@ -4,6 +4,11 @@ import getCroppedImg from "../utils/CropImage";
 import postArticleStyles from "../stylesheets/postArticle.module.scss";
 import "regenerator-runtime/runtime";
 
+/**
+ * Cropperのエリアを表示し、画像をzoom、rotationして保存する
+ * @param {画像urlまたはbase64コード} selectImage
+ * @param {CroppedImageをセットする関数} setCroppedImage
+ */
 const CropperArea = ({ selectImage, setCroppedImage }) => {
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [rotation, setRotation] = useState(0);
