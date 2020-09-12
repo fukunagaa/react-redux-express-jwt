@@ -107,4 +107,21 @@ module.exports = {
       console.log("finally");
     }
   },
+
+  selectAllArticle: async function () {
+    try {
+      client = new Client(postgres.option);
+      await client.connect();
+      console.log("Connected successfully in async");
+      const allRows = await client.query(
+        "select title, contents, encoded_image as image, create_user from article_table"
+      );
+      return allRows.rows;
+    } catch (err) {
+      console.log("DB Access Error: ", err);
+    } finally {
+      await client.end();
+      console.log("finally");
+    }
+  },
 };

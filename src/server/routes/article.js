@@ -17,4 +17,15 @@ router.post("/create", async (req, res, next) => {
   }
 });
 
+router.post("/fetchAll", async (req, res, next) => {
+  const date = new Date();
+  if (req.session.cookie._expires > date) {
+    req.session.updatedTime = date;
+    const articles = await dbAccess.selectAllArticle();
+    res.status(HTTPSTATUS.SUCCESS.CODE).json({ articles: articles });
+  } else {
+    res.status(HTTPSTATUS.UNAUTHORIZED.CODE).json({ message: HTTPSTATUS.UNAUTHORIZED.MESSAGE });
+  }
+});
+
 module.exports = router;
