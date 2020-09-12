@@ -1,5 +1,6 @@
 const { Client } = require("pg");
 const { postgres } = require("../utils/config");
+const { encode } = require("../utils/hash");
 
 let client;
 
@@ -80,6 +81,24 @@ module.exports = {
         name,
         password,
       ]);
+      return allRows.rowCount;
+    } catch (err) {
+      console.log("DB Access Error: ", err);
+    } finally {
+      await client.end();
+      console.log("finally");
+    }
+  },
+
+  insertArticle: async function (title, contents, encoded_image, userName) {
+    try {
+      client = new Client(postgres.option);
+      await client.connect();
+      console.log("Connected successfully in async");
+      const allRows = await client.query(
+        "INSERT INTO article_table (title, contents, encoded_image, create_user) VALUES($1, $2, $3, $4)",
+        [title, contents, encoded_image, userName]
+      );
       return allRows.rowCount;
     } catch (err) {
       console.log("DB Access Error: ", err);

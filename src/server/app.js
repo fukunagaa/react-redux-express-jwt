@@ -9,6 +9,7 @@ const { cookie } = require("./utils/config");
 const indexRouter = require("./routes/index");
 const loginRouter = require("./routes/login");
 const signupRouter = require("./routes/signup");
+const articleRouter = require("./routes/article");
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.use(express.static(path.join("public")));
 app.use("/", indexRouter);
 app.use("/login", loginRouter);
 app.use("/signup", signupRouter);
+app.use("/article", articleRouter);
 
 const port = 3000;
 app.listen(port, () => {
