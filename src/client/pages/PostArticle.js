@@ -1,15 +1,18 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import postArticleStyles from "../stylesheets/postArticle.module.scss";
 import commonStyles from "../Stylesheets/common.module.scss";
 import placeholderStyles from "../stylesheets/inputPlaceholder.module.scss";
 import Icon from "../assets/add_task.svg";
 import CropperArea from "../components/CropperArea";
+import { postArticleRequest } from "../redux/actions";
 
 const PostArticle = () => {
   const [contents, setContents] = useState("");
   const [title, setTitle] = useState("");
   const [selectImage, setSelectImage] = useState("");
   const [croppedImage, setCroppedImage] = useState(null);
+  const dispach = useDispatch();
   const getBase64 = (imgfile) => {
     setSelectImage("");
     setCroppedImage(null);
@@ -21,6 +24,9 @@ const PostArticle = () => {
       setSelectImage(evt.target.result);
     };
     fr.readAsDataURL(file);
+  };
+  const postArticle = () => {
+    dispach(postArticleRequest({ title, contents, image: croppedImage }));
   };
   return (
     <div className={commonStyles.mainContainer}>
@@ -87,7 +93,7 @@ const PostArticle = () => {
               </div>
             </div>
             <div className={commonStyles.submitBtnArea}>
-              <button className={commonStyles.submitBtn} onClick={() => console.log("click")}>
+              <button className={commonStyles.submitBtn} onClick={() => postArticle()}>
                 登録
               </button>
             </div>
