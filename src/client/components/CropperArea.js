@@ -20,7 +20,6 @@ const CropperArea = ({ selectImage, setCroppedImage }) => {
   const showCroppedImage = useCallback(async () => {
     try {
       const cropped = await getCroppedImg(selectImage, croppedAreaPixels, rotation);
-      console.log("donee", { cropped });
       setCroppedImage(cropped);
     } catch (e) {
       console.error(e);

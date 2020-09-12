@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import postArticleStyles from "../stylesheets/postArticle.module.scss";
 import commonStyles from "../Stylesheets/common.module.scss";
 import placeholderStyles from "../stylesheets/inputPlaceholder.module.scss";
@@ -12,6 +12,7 @@ const PostArticle = () => {
   const [title, setTitle] = useState("");
   const [selectImage, setSelectImage] = useState("");
   const [croppedImage, setCroppedImage] = useState(null);
+  const postArticleState = useSelector((state) => state.articles.postArticleState);
   const dispach = useDispatch();
   const getBase64 = (imgfile) => {
     setSelectImage("");
@@ -44,6 +45,9 @@ const PostArticle = () => {
             <h3 className={commonStyles.textAlignCenter}>登録</h3>
           </div>
           <div className={commonStyles.formContainer}>
+            <div className={commonStyles.textAlignCenter}>
+              <span>{postArticleState.message}</span>
+            </div>
             <div className={commonStyles.inputBigArea}>
               <label className={placeholderStyles.labelInputPlaceholder}>
                 <input

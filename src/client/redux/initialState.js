@@ -10,4 +10,8 @@ export const userInitialState = {
 
 export const articlesInitialState = {
   articles: [],
+  postArticleState: {
+    message: "",
+    errorFlag: false,
+  },
 };
