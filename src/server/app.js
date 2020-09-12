@@ -24,8 +24,8 @@ app.use(
 );
 
 app.use(logger("dev"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.json({ limit: 100000000 }));
+app.use(express.urlencoded({ extended: true, limit: 100000000 }));
 app.use(express.static(path.join("public")));
 
 app.use("/", indexRouter);
