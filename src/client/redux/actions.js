@@ -3,7 +3,8 @@ import axios from "axios";
 
 /**
  * メールアドレスとパスワードを入力してサーバからログイン情報を取得する
- * @param {クエリー} param0
+ * @param {Eメールアドレス} email
+ * @param {パスワード} password
  */
 export const loadLogin = ({ email, password }) => {
   return {
@@ -14,7 +15,11 @@ export const loadLogin = ({ email, password }) => {
 
 /**
  * メールアドレス、パスワード、ユーザ名、ファーストネーム、ラストネームを入力してサインアップする
- * @param {クエリー} param0
+ * @param {Eメールアドレス} email
+ * @param {ユーザ名} userName
+ * @param {パスワード} password
+ * @param {性} firstName
+ * @param {名} lastName
  */
 export const signupRequest = ({ email, userName, password, firstName, lastName }) => {
   return {
@@ -23,6 +28,12 @@ export const signupRequest = ({ email, userName, password, firstName, lastName }
   };
 };
 
+/**
+ *
+ * @param {ログインフラグ} isLogin
+ * @param {管理者フラグ} isAdmin
+ * @param {ユーザフラグ} isUser
+ */
 export const changeLoginStatus = ({ isLogin, isAdmin, isUser }) => {
   return {
     type: CHANGE_STATUS,
