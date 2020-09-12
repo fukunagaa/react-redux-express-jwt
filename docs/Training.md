@@ -51,6 +51,12 @@ $ npm install --save-dev sass-loader sass style-loader
 $ npm install --save-dev file-loader
 ```
 
+- cropper に関するインストール
+
+```
+$ npm install --save-dev react-easy-crop
+```
+
 - ファイルの使用状況を調べる
 
 ```
