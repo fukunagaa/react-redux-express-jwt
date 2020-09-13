@@ -1,26 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import postArticleStyles from "../stylesheets/postArticle.module.scss";
 import getArticleStyles from "../stylesheets/getArticle.module.scss";
 import commonStyles from "../Stylesheets/common.module.scss";
 import Icon from "../assets/add_task.svg";
-import { changeLoginStatus } from "../redux/actions";
-import axios from "axios";
+import { fethAllArticles } from "../redux/actions";
 
 const GetArticle = () => {
-  const [articles, setArticles] = useState([]);
+  const articles = useSelector((state) => state.articles.articles);
   console.log(articles);
   const dispach = useDispatch();
   useEffect(() => {
     if (articles.length == 0) {
-      axios
-        .post("/article/fetchAll")
-        .then((res) => {
-          setArticles(res.data.articles);
-        })
-        .catch(() => {
-          dispach(changeLoginStatus({ isLogin: false, isAdmin: false, isUser: false }));
-        });
+      dispach(fethAllArticles());
     }
   });
   const articlesElement = articles.map((article, index) => {
@@ -33,7 +25,6 @@ const GetArticle = () => {
       </div>
     );
   });
-  console.log(articlesElement);
   return (
     <div className={commonStyles.mainContainer}>
       <div className={commonStyles.contentsContainer}>

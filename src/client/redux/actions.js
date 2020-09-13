@@ -1,4 +1,4 @@
-import { LOAD_LOGIN, SIGNUP, CHANGE_STATUS, POST_ARTICLE } from "./actionTypes";
+import { LOAD_LOGIN, SIGNUP, CHANGE_STATUS, POST_ARTICLE, FETCH_ALL_ARTICLE } from "./actionTypes";
 import axios from "axios";
 
 /**
@@ -55,5 +55,12 @@ export const postArticleRequest = ({ title, contents, image }) => {
   return {
     type: POST_ARTICLE,
     payload: axios.post("/article/create", { title, contents, image }),
+  };
+};
+
+export const fethAllArticles = () => {
+  return {
+    type: FETCH_ALL_ARTICLE,
+    payload: axios.post("/article/fetchAll"),
   };
 };
