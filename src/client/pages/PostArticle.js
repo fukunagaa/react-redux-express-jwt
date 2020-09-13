@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import postArticleStyles from "../stylesheets/postArticle.module.scss";
 import commonStyles from "../Stylesheets/common.module.scss";
@@ -30,16 +30,12 @@ const PostArticle = () => {
   };
   const postArticle = () => {
     socket.emit("myevent1", {
-      title: "hoge",
-      contents: "hogehoge",
-      image: null,
+      title,
+      contents,
+      image: croppedImage,
     });
     dispach(postArticleRequest({ title, contents, image: croppedImage }));
   };
-  socket.on("myreceive1", (data) => {
-    console.log("receive!!!");
-    console.log(data);
-  });
   return (
     <div className={commonStyles.mainContainer}>
       <div className={commonStyles.contentsContainer}>
