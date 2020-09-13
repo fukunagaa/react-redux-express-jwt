@@ -1,0 +1,23 @@
+.articlesContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.articleContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-top: solid 1px rgb(211, 211, 211);
+    margin-bottom: 10px;
+}
+
+.headerContainer {
+    background-color: rgb(199, 199, 199);
+    margin-bottom: 0px;
+}
+
+.image {
+    width: 60px;
+    height: 60px;
+}
