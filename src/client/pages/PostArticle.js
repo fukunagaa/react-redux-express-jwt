@@ -6,8 +6,10 @@ import placeholderStyles from "../stylesheets/inputPlaceholder.module.scss";
 import Icon from "../assets/add_task.svg";
 import CropperArea from "../components/CropperArea";
 import { postArticleRequest } from "../redux/actions";
+import io from "socket.io-client";
 
 const PostArticle = () => {
+  const [socket, _] = useState(() => io.connect("localhost:3000"));
   const [contents, setContents] = useState("");
   const [title, setTitle] = useState("");
   const [selectImage, setSelectImage] = useState("");
@@ -27,8 +29,17 @@ const PostArticle = () => {
     fr.readAsDataURL(file);
   };
   const postArticle = () => {
+    socket.emit("myevent1", {
+      title: "hoge",
+      contents: "hogehoge",
+      image: null,
+    });
     dispach(postArticleRequest({ title, contents, image: croppedImage }));
   };
+  socket.on("myreceive1", (data) => {
+    console.log("receive!!!");
+    console.log(data);
+  });
   return (
     <div className={commonStyles.mainContainer}>
       <div className={commonStyles.contentsContainer}>

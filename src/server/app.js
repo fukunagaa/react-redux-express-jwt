@@ -1,4 +1,5 @@
 const express = require("express");
+const socket = require("socket.io");
 const path = require("path");
 const session = require("express-session");
 const redis = require("redis");
@@ -34,6 +35,14 @@ app.use("/signup", signupRouter);
 app.use("/article", articleRouter);
 
 const port = 3000;
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log("on server :: http://localhost:" + port);
+});
+
+const io = socket(server);
+
+io.on("connection", (socket) => {
+  socket.on("myevent1", function (data) {
+    io.emit("myreceive1", { data });
+  });
 });
