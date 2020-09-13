@@ -1,6 +1,8 @@
 .articlesContainer {
     display: flex;
     flex-direction: column;
+    height: 700px;
+    overflow-y: scroll;
 }
 
 .articleContainer {

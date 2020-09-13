@@ -4,19 +4,22 @@ import postArticleStyles from "../stylesheets/postArticle.module.scss";
 import getArticleStyles from "../stylesheets/getArticle.module.scss";
 import commonStyles from "../Stylesheets/common.module.scss";
 import Icon from "../assets/add_task.svg";
-import { fethAllArticles } from "../redux/actions";
+import { fethAllArticles, addReceivedArticle } from "../redux/actions";
+import io from "socket.io-client";
 
 const GetArticle = () => {
   const articles = useSelector((state) => state.articles.articles);
-  console.log(articles);
-  const dispach = useDispatch();
+  const [socket, _] = useState(() => io.connect("localhost:3000"));
+  // socket.removeListener("myreceive1");
+  socket.removeAllListeners();
   useEffect(() => {
+    console.log(socket);
     if (articles.length == 0) {
       dispach(fethAllArticles());
     }
   });
+  const dispach = useDispatch();
   const articlesElement = articles.map((article, index) => {
-    console.log(article);
     return (
       <div className={getArticleStyles.articleContainer} key={index}>
         <span>{article.title}</span>
@@ -24,6 +27,10 @@ const GetArticle = () => {
         <img className={getArticleStyles.image} src={article.image} />
       </div>
     );
+  });
+  socket.on("myreceive1", (article) => {
+    console.log("socket.on");
+    dispach(addReceivedArticle({ article }));
   });
   return (
     <div className={commonStyles.mainContainer}>
@@ -40,14 +47,12 @@ const GetArticle = () => {
             </div>
             <h3 className={commonStyles.textAlignCenter}>閲覧</h3>
           </div>
-          <div className={getArticleStyles.articlesContainer}>
-            <div className={`${getArticleStyles.articleContainer} ${getArticleStyles.headerContainer}`} key="header">
-              <span>タイトル</span>
-              <span>内容</span>
-              <span>イメージ</span>
-            </div>
-            {articlesElement}
+          <div className={`${getArticleStyles.articleContainer} ${getArticleStyles.headerContainer}`} key="header">
+            <span>タイトル</span>
+            <span>内容</span>
+            <span>イメージ</span>
           </div>
+          <div className={getArticleStyles.articlesContainer}>{articlesElement}</div>
         </div>
       </div>
     </div>
