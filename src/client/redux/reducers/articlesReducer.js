@@ -1,5 +1,5 @@
 import { articlesInitialState } from "../initialState";
-import { POST_ARTICLE_FULFILLED, FETCH_ALL_ARTICLE_FULFILLED } from "../actionTypes";
+import { POST_ARTICLE_FULFILLED, FETCH_ALL_ARTICLE_FULFILLED, ADD_RECEIVED_ARTICLE } from "../actionTypes";
 
 export default function (state = articlesInitialState, action) {
   switch (action.type) {
@@ -18,6 +18,13 @@ export default function (state = articlesInitialState, action) {
       return {
         ...state,
         articles: articles,
+      };
+    case ADD_RECEIVED_ARTICLE:
+      const article = action.payload.article.data;
+      console.log(article);
+      return {
+        ...state,
+        articles: [...state.articles, article],
       };
     default:
       return {
