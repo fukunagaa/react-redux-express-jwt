@@ -57,6 +57,12 @@ $ npm install --save-dev file-loader
 $ npm install --save-dev react-easy-crop
 ```
 
+- socket.io に関するインストール
+
+```
+$ npm install --save-dev socket.io-client
+```
+
 - ファイルの使用状況を調べる
 
 ```
@@ -99,4 +105,10 @@ $ npm install --save-dev bcrypt
 
 ```
 $ npm install --save-dev express-session connect-redis redis
+```
+
+- socket.io に関するインストール
+
+```
+$ npm install --save-dev socket.io
 ```
