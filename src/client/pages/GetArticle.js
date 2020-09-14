@@ -1,17 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import postArticleStyles from "../stylesheets/postArticle.module.scss";
 import getArticleStyles from "../stylesheets/getArticle.module.scss";
 import commonStyles from "../Stylesheets/common.module.scss";
 import Icon from "../assets/add_task.svg";
 import { fethAllArticles, addReceivedArticle } from "../redux/actions";
-import io from "socket.io-client";
+import { useSocket } from "../components/SocketProvider";
 
 const GetArticle = () => {
   const articles = useSelector((state) => state.articles.articles);
-  const [socket, _] = useState(() => io.connect("localhost:3000"));
-  // socket.removeListener("myreceive1");
-  socket.removeAllListeners();
   useEffect(() => {
     console.log(socket);
     if (articles.length == 0) {
@@ -28,10 +25,16 @@ const GetArticle = () => {
       </div>
     );
   });
-  socket.on("myreceive1", (article) => {
-    console.log("socket.on");
-    dispach(addReceivedArticle({ article }));
-  });
+  const socket = useSocket(
+    (socket) => {
+      socket.on("myreceive1", (article) => {
+        dispach(addReceivedArticle({ article }));
+      });
+    },
+    (socket) => {
+      socket.off("myreceive1");
+    }
+  );
   return (
     <div className={commonStyles.mainContainer}>
       <div className={commonStyles.contentsContainer}>

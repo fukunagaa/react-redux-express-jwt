@@ -6,16 +6,26 @@ import placeholderStyles from "../stylesheets/inputPlaceholder.module.scss";
 import Icon from "../assets/add_task.svg";
 import CropperArea from "../components/CropperArea";
 import { postArticleRequest } from "../redux/actions";
-import io from "socket.io-client";
+import { useSocket } from "../components/SocketProvider";
 
 const PostArticle = () => {
-  const [socket, _] = useState(() => io.connect("localhost:3000"));
   const [contents, setContents] = useState("");
   const [title, setTitle] = useState("");
   const [selectImage, setSelectImage] = useState("");
   const [croppedImage, setCroppedImage] = useState(null);
   const postArticleState = useSelector((state) => state.articles.postArticleState);
   const dispach = useDispatch();
+  const socket = useSocket(
+    (socket) => {
+      socket.on("myreceive1", (article) => {
+        console.log(article);
+      });
+    },
+    (socket) => {
+      socket.off("myreceive1");
+    }
+  );
+  console.log(socket);
   const getBase64 = (imgfile) => {
     setSelectImage("");
     setCroppedImage(null);
