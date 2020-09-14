@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import PostArticle from "./pages/PostArticle";
 import GetArticle from "./pages/GetArticle";
+import Chat from "./pages/Chat";
 
 const App = () => {
   const { isLogin } = useSelector((state) => state.user);
@@ -28,6 +29,9 @@ const App = () => {
         </Route>
         <Route exact path="/getArticle">
           <GetArticle />
+        </Route>
+        <Route exact path="/chat">
+          <Chat />
         </Route>
       </Layout>
     </Router>
