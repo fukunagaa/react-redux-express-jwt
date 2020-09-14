@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import className from "classnames";
 import Icon from "../assets/create-signup.svg";
 import commonStyles from "../Stylesheets/common.module.scss";
 import signupStyles from "../Stylesheets/signup.module.scss";

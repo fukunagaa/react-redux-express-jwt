@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import className from "classnames";
 import { loadLogin } from "../redux/actions";
 import Icon from "../assets/lock-black-18dp.svg";
 import loginStyles from "../Stylesheets/login.module.scss";
