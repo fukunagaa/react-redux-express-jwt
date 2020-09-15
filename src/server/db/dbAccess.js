@@ -90,6 +90,13 @@ module.exports = {
     }
   },
 
+  /**
+   * タイトル、内容、画像、ユーザ名を保存する。
+   * @param {タイトル} title
+   * @param {内容} contents
+   * @param {画像の情報} encoded_image
+   * @param {ユーザ名} userName
+   */
   insertArticle: async function (title, contents, encoded_image, userName) {
     try {
       client = new Client(postgres.option);
@@ -108,6 +115,9 @@ module.exports = {
     }
   },
 
+  /**
+   * 全ての投稿情報を取得する
+   */
   selectAllArticle: async function () {
     try {
       client = new Client(postgres.option);
