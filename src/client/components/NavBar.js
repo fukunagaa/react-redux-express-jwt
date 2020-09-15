@@ -3,6 +3,11 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import navbarStyles from "../stylesheets/navbar.module.scss";
 
+/**
+ * ナビゲーションバーを表示する
+ * 表示されているパスからアクティブ状態を判断する
+ * @param {パス} location
+ */
 const NavBar = ({ location }) => {
   const user = useSelector((state) => state.user);
   const isLogin = user.isLogin;

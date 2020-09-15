@@ -3,6 +3,10 @@ import io from "socket.io-client";
 
 export const socketContext = createContext();
 
+/**
+ * 子コンポーネントを受け取り、socket.ioを呼び出せるようにする
+ * @param {子コンポーネント} children
+ */
 export const SocketProvider = ({ children }) => {
   const [socket, _] = useState(() => io.connect("localhost:3000"));
 
