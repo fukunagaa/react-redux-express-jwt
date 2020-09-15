@@ -17,12 +17,12 @@ const PostArticle = () => {
   const dispach = useDispatch();
   const socket = useSocket(
     (socket) => {
-      socket.on("myreceive1", (article) => {
-        console.log(article);
+      socket.on("receiveArticle", (article) => {
+        dispach(addReceivedArticle({ article }));
       });
     },
     (socket) => {
-      socket.off("myreceive1");
+      socket.off("receiveArticle");
     }
   );
   console.log(socket);

@@ -43,6 +43,6 @@ const io = socket(server);
 
 io.on("connection", (socket) => {
   socket.on("myevent1", function (data) {
-    io.emit("myreceive1", { data });
+    io.emit("receiveArticle", { data });
   });
 });
