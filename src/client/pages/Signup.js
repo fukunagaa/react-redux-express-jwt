@@ -17,6 +17,11 @@ const Signup = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const { signupState } = useSelector((state) => state.user);
   const dispach = useDispatch();
+
+  /**
+   * サインアップページ
+   * ユーザの登録をする
+   */
   const signup = () => {
     if (password1 != password2) {
       setErrorMessage("** 入力されたパスワードが一致しません。 **");

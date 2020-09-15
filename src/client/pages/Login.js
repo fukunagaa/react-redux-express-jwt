@@ -7,6 +7,9 @@ import loginStyles from "../Stylesheets/login.module.scss";
 import commonStyles from "../Stylesheets/common.module.scss";
 import placeholderStyles from "../stylesheets/inputPlaceholder.module.scss";
 
+/**
+ * ログインページ
+ */
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPasswoord] = useState("");

@@ -8,6 +8,10 @@ import CropperArea from "../components/CropperArea";
 import { postArticleRequest } from "../redux/actions";
 import { useSocket } from "../components/SocketProvider";
 
+/**
+ * 投稿ページ
+ * タイトル、内容、画像の投稿をする
+ */
 const PostArticle = () => {
   const [contents, setContents] = useState("");
   const [title, setTitle] = useState("");

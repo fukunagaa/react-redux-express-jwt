@@ -5,6 +5,10 @@ import { changeLoginStatus } from "../redux/actions";
 import { Redirect } from "react-router";
 import { Link } from "react-router-dom";
 
+/**
+ * ホームページ
+ * ログイン時に表示される画面
+ */
 const Home = () => {
   const [redirectTo, setRedirectTo] = useState(false);
   const dispach = useDispatch();

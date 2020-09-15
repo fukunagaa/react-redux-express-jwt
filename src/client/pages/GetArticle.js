@@ -7,6 +7,10 @@ import Icon from "../assets/add_task.svg";
 import { fethAllArticles, addReceivedArticle } from "../redux/actions";
 import { useSocket } from "../components/SocketProvider";
 
+/**
+ * 閲覧ページ
+ * 投稿を一覧表示する
+ */
 const GetArticle = () => {
   const articles = useSelector((state) => state.articles.articles);
   useEffect(() => {
