@@ -19,6 +19,10 @@ router.get("/getArticle", (req, res, next) => {
   res.sendFile("index.html", options);
 });
 
+router.get("/chat", (req, res, next) => {
+  res.sendFile("index.html", options);
+});
+
 router.get("/login", (req, res, next) => {
   res.sendFile("index.html", options);
 });
