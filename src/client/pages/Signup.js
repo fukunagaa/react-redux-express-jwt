@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 import Icon from "../assets/create-signup.svg";
 import commonStyles from "../Stylesheets/common.module.scss";
 import signupStyles from "../Stylesheets/signup.module.scss";
-import placeholderStyles from "../stylesheets/inputPlaceholder.module.scss";
 import { signupRequest } from "../redux/actions";
+import BigInput from "../components/BigInput";
+import SmallInput from "../components/SmallInput";
+import SubmitButton from "../components/SubmitButton";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -55,108 +57,26 @@ const Signup = () => {
           </div>
           {errorElement}
           <div className={commonStyles.inputFlexRowContainer}>
-            <div className={commonStyles.inputSmallArea}>
-              <label className={placeholderStyles.labelInputPlaceholder}>
-                <input
-                  type="text"
-                  name="firstName"
-                  id="firstName"
-                  placeholder="&nbsp;"
-                  required
-                  className={placeholderStyles.labelInputPlaceholder}
-                  value={firstName}
-                  onChange={(event) => setFirstName(event.target.value)}
-                />
-                <span className={placeholderStyles.labelPlaceholder}>First Name *</span>
-              </label>
-            </div>
-            <div className={commonStyles.inputSmallArea}>
-              <label className={placeholderStyles.labelInputPlaceholder}>
-                <input
-                  type="text"
-                  name="lastName"
-                  id="lastName"
-                  placeholder="&nbsp;"
-                  required
-                  className={placeholderStyles.labelInputPlaceholder}
-                  value={lastName}
-                  onChange={(event) => setLastName(event.target.value)}
-                />
-                <span className={placeholderStyles.labelPlaceholder}>Last Name *</span>
-              </label>
-            </div>
+            <SmallInput type="text" name="firstName" value={firstName} setValue={setFirstName} displayName="First Name *" />
+            <SmallInput type="text" name="lastName" value={lastName} setValue={setLastName} displayName="Last Name *" />
           </div>
-          <div className={commonStyles.inputBigArea}>
-            <label className={placeholderStyles.labelInputPlaceholder}>
-              <input
-                type="text"
-                name="email"
-                id="email"
-                placeholder="&nbsp;"
-                required
-                className={placeholderStyles.labelInputPlaceholder}
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-              />
-              <span className={placeholderStyles.labelPlaceholder}>Email Address *</span>
-            </label>
-          </div>
-          <div className={commonStyles.inputBigArea}>
-            <label className={placeholderStyles.labelInputPlaceholder}>
-              <input
-                type="text"
-                name="userName"
-                id="userName"
-                placeholder="&nbsp;"
-                required
-                className={placeholderStyles.labelInputPlaceholder}
-                value={userName}
-                onChange={(event) => setUserName(event.target.value)}
-              />
-              <span className={placeholderStyles.labelPlaceholder}>User Name*</span>
-            </label>
-          </div>
-          <div className={commonStyles.inputBigArea}>
-            <label className={placeholderStyles.labelInputPlaceholder}>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="&nbsp;"
-                required
-                className={placeholderStyles.labelInputPlaceholder}
-                value={password1}
-                onChange={(event) => setPassword1(event.target.value)}
-              />
-              <span className={placeholderStyles.labelPlaceholder}>Password *</span>
-            </label>
-          </div>
-          <div className={commonStyles.inputBigArea}>
-            <label className={placeholderStyles.labelInputPlaceholder}>
-              <input
-                type="password"
-                name="password2"
-                id="password2"
-                placeholder="&nbsp;"
-                required
-                className={placeholderStyles.labelInputPlaceholder}
-                value={password2}
-                onChange={(event) => setPassword2(event.target.value)}
-              />
-              <span className={placeholderStyles.labelPlaceholder}>one more Password *</span>
-            </label>
-          </div>
+          <BigInput type="text" name="email" value={email} setValue={setEmail} displayName="Email Address *" />
+          <BigInput type="text" name="userName" value={userName} setValue={setUserName} displayName="User Name*" />
+          <BigInput type="password" name="password1" value={password1} setValue={setPassword1} displayName="Password *" />
+          <BigInput
+            type="password"
+            name="password2"
+            value={password2}
+            setValue={setPassword2}
+            displayName="one more Password *"
+          />
           <div className={commonStyles.checkboxContainer}>
             <label>
               <input type="checkbox" name="mailmagazine" id="mailmagazine" className={commonStyles.checkboxInput} />
               <span className={commonStyles.checkboxParts}>メールマガジン登録</span>
             </label>
           </div>
-          <div className={commonStyles.submitBtnArea}>
-            <button className={commonStyles.submitBtn} onClick={() => signup()}>
-              Sign up
-            </button>
-          </div>
+          <SubmitButton displayName="Sign up" submit={signup} />
           <div className={signupStyles.linkSignupContainer}>
             <div>
               <Link to="/login">ログインへ</Link>
