@@ -5,7 +5,8 @@ import { loadLogin } from "../redux/actions";
 import Icon from "../assets/lock-black-18dp.svg";
 import loginStyles from "../Stylesheets/login.module.scss";
 import commonStyles from "../Stylesheets/common.module.scss";
-import placeholderStyles from "../stylesheets/inputPlaceholder.module.scss";
+import BigInput from "../components/BigInput";
+import SubmitButton from "../components/SubmitButton";
 
 /**
  * ログインページ
@@ -29,47 +30,15 @@ const Login = () => {
           <h3 className={commonStyles.textAlignCenter}>Login</h3>
         </div>
         <div className={commonStyles.formContainer}>
-          <div className={commonStyles.inputBigArea}>
-            <label className={placeholderStyles.labelInputPlaceholder}>
-              <input
-                type="text"
-                name="email"
-                id="email"
-                placeholder="&nbsp;"
-                required
-                className={placeholderStyles.labelInputPlaceholder}
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-              />
-              <span className={placeholderStyles.labelPlaceholder}>Email Address *</span>
-            </label>
-          </div>
-          <div className={commonStyles.inputBigArea}>
-            <label className={placeholderStyles.labelInputPlaceholder}>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="&nbsp;"
-                required
-                className={placeholderStyles.labelInputPlaceholder}
-                value={password}
-                onChange={(event) => setPasswoord(event.target.value)}
-              />
-              <span className={placeholderStyles.labelPlaceholder}>Password *</span>
-            </label>
-          </div>
+          <BigInput type="text" name="email" value={email} setValue={setEmail} displayName="Email Address *" />
+          <BigInput type="text" name="password" value={password} setValue={setPasswoord} displayName="Password *" />
           <div className={commonStyles.checkboxContainer}>
             <label>
               <input type="checkbox" name="remenber" id="remenber" className={commonStyles.checkboxInput} />
               <span className={commonStyles.checkboxParts}>remenber me</span>
             </label>
           </div>
-          <div className={commonStyles.submitBtnArea}>
-            <button className={commonStyles.submitBtn} onClick={() => login()}>
-              Login
-            </button>
-          </div>
+          <SubmitButton displayName="Login" submit={login} />
           <div className={loginStyles.linkLoginContainer}>
             <div>
               <a href="/forgot">パスワードを忘れた?</a>
