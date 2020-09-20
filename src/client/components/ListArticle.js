@@ -15,7 +15,16 @@ const ListArticle = ({ articles }) => {
       </div>
     );
   });
-  return <div className={getArticleStyles.articlesContainer}>{articlesElement}</div>;
+  return (
+    <>
+      <div className={`${getArticleStyles.articleContainer} ${getArticleStyles.headerContainer}`} key="header">
+        <span>タイトル</span>
+        <span>内容</span>
+        <span>イメージ</span>
+      </div>
+      <div className={getArticleStyles.articlesContainer}>{articlesElement}</div>
+    </>
+  );
 };
 
 export default ListArticle;

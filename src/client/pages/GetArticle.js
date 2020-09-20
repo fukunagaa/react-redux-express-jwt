@@ -43,11 +43,6 @@ const GetArticle = () => {
             </div>
             <h3 className={commonStyles.textAlignCenter}>閲覧</h3>
           </div>
-          <div className={`${getArticleStyles.articleContainer} ${getArticleStyles.headerContainer}`} key="header">
-            <span>タイトル</span>
-            <span>内容</span>
-            <span>イメージ</span>
-          </div>
           <ListArticle articles={articles} />
         </div>
       </div>
