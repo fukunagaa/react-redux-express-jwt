@@ -6,6 +6,7 @@ import commonStyles from "../Stylesheets/common.module.scss";
 import Icon from "../assets/add_task.svg";
 import { fethAllArticles, addReceivedArticle } from "../redux/actions";
 import { useSocket } from "../components/SocketProvider";
+import ListArticle from "../components/ListArticle";
 
 /**
  * 閲覧ページ
@@ -20,15 +21,6 @@ const GetArticle = () => {
     }
   });
   const dispach = useDispatch();
-  const articlesElement = articles.map((article, index) => {
-    return (
-      <div className={getArticleStyles.articleContainer} key={index}>
-        <span>{article.title}</span>
-        <span>{article.contents}</span>
-        <img className={getArticleStyles.image} src={article.image} />
-      </div>
-    );
-  });
   const socket = useSocket(
     (socket) => {
       socket.on("receiveArticle", (article) => {
@@ -46,10 +38,7 @@ const GetArticle = () => {
           <div className={commonStyles.titleContainer}>
             <div className={commonStyles.textAlignCenter}>
               <div className={commonStyles.logoCircleArea}>
-                <img
-                  className={`${commonStyles.noSelect} ${commonStyles.white} ${postArticleStyles.logo}`}
-                  src={Icon}
-                />
+                <img className={`${commonStyles.noSelect} ${commonStyles.white} ${postArticleStyles.logo}`} src={Icon} />
               </div>
             </div>
             <h3 className={commonStyles.textAlignCenter}>閲覧</h3>
@@ -59,7 +48,7 @@ const GetArticle = () => {
             <span>内容</span>
             <span>イメージ</span>
           </div>
-          <div className={getArticleStyles.articlesContainer}>{articlesElement}</div>
+          <ListArticle articles={articles} />
         </div>
       </div>
     </div>
