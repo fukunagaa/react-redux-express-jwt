@@ -1,6 +1,10 @@
 import React from "react";
 import getArticleStyles from "../stylesheets/getArticle.module.scss";
 
+/**
+ * 記事を表として表示する
+ * @param {表示する記事のリスト} articles
+ */
 const ListArticle = ({ articles }) => {
   const articlesElement = articles.map((article, index) => {
     return (
