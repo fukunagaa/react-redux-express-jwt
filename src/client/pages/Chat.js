@@ -1,7 +1,7 @@
 import React from "react";
 import commonStyles from "../Stylesheets/common.module.scss";
 
-const CHAT = () => {
+const Chat = () => {
   return (
     <div className={commonStyles.mainContainer}>
       <div>CHAT PAGE</div>
@@ -9,4 +9,4 @@ const CHAT = () => {
   );
 };
 
-export default CHAT;
+export default Chat;
