@@ -24,7 +24,7 @@ const NavBar = ({ location }) => {
   ) : (
     <li className={`${navbarStyles.login} ${loginClass}`}>
       <Link to="/login" className={navbarStyles.loginColor}>
-        login
+        ログイン
       </Link>
     </li>
   );
