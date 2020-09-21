@@ -31,7 +31,7 @@ const Login = () => {
         </div>
         <div className={commonStyles.formContainer}>
           <BigInput type="text" name="email" value={email} setValue={setEmail} displayName="Email Address *" />
-          <BigInput type="text" name="password" value={password} setValue={setPasswoord} displayName="Password *" />
+          <BigInput type="password" name="password" value={password} setValue={setPasswoord} displayName="Password *" />
           <div className={commonStyles.checkboxContainer}>
             <label>
               <input type="checkbox" name="remenber" id="remenber" className={commonStyles.checkboxInput} />
