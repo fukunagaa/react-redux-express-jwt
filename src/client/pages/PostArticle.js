@@ -5,7 +5,7 @@ import commonStyles from "../Stylesheets/common.module.scss";
 import placeholderStyles from "../stylesheets/inputPlaceholder.module.scss";
 import Icon from "../assets/add_task.svg";
 import CropperArea from "../components/CropperArea";
-import { postArticleRequest } from "../redux/actions";
+import { postArticleRequest, addReceivedArticle } from "../redux/actions";
 import { useSocket } from "../components/SocketProvider";
 
 /**
