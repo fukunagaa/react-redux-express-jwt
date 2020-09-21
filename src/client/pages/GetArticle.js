@@ -31,6 +31,9 @@ const GetArticle = () => {
       socket.off("receiveArticle");
     }
   );
+  const updateArticles = () => {
+    dispach(fethAllArticles());
+  };
   return (
     <div className={commonStyles.mainContainer}>
       <div className={commonStyles.contentsContainer}>
@@ -43,9 +46,14 @@ const GetArticle = () => {
             </div>
             <h3 className={commonStyles.textAlignCenter}>閲覧</h3>
           </div>
-          <div class={getArticleStyles.updateConteiner}>
+          <div className={getArticleStyles.updateConteiner}>
             <div>
-              <img title="update" className={`${commonStyles.noSelect} ${getArticleStyles.logo}`} src={UpdateIcon} />
+              <img
+                title="update"
+                className={`${commonStyles.noSelect} ${getArticleStyles.logo}`}
+                src={UpdateIcon}
+                onClick={() => updateArticles()}
+              />
             </div>
           </div>
           <ListArticle articles={articles} />
