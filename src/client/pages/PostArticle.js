@@ -43,7 +43,7 @@ const PostArticle = () => {
     fr.readAsDataURL(file);
   };
   const postArticle = () => {
-    socket.emit("myevent1", {
+    socket.emit("pushArticle", {
       title,
       contents,
       image: croppedImage,

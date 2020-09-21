@@ -42,7 +42,7 @@ const server = app.listen(port, () => {
 const io = socket(server);
 
 io.on("connection", (socket) => {
-  socket.on("myevent1", function (data) {
+  socket.on("pushArticle", function (data) {
     io.emit("receiveArticle", { data });
   });
 });
