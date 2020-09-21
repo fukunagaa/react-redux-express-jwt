@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import getArticleStyles from "../stylesheets/getArticle.module.scss";
 import commonStyles from "../Stylesheets/common.module.scss";
 import Icon from "../assets/table_view-black-18dp.svg";
+import UpdateIcon from "../assets/update-black-18dp.svg";
 import { fethAllArticles, addReceivedArticle } from "../redux/actions";
 import { useSocket } from "../components/SocketProvider";
 import ListArticle from "../components/ListArticle";
@@ -41,6 +42,11 @@ const GetArticle = () => {
               </div>
             </div>
             <h3 className={commonStyles.textAlignCenter}>閲覧</h3>
+          </div>
+          <div class={getArticleStyles.updateConteiner}>
+            <div>
+              <img title="update" className={`${commonStyles.noSelect} ${getArticleStyles.logo}`} src={UpdateIcon} />
+            </div>
           </div>
           <ListArticle articles={articles} />
         </div>
