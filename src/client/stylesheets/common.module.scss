@@ -4,6 +4,11 @@
     align-items: center;
 }
 
+.mainChildContainer {
+    display: flex;
+    flex-direction: column;
+}
+
 .contentsContainer {
     display: flex;
     flex-direction: column;

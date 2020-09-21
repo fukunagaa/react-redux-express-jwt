@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import postArticleStyles from "../stylesheets/postArticle.module.scss";
 import getArticleStyles from "../stylesheets/getArticle.module.scss";
 import commonStyles from "../Stylesheets/common.module.scss";
-import Icon from "../assets/add_task.svg";
+import Icon from "../assets/table_view-black-18dp.svg";
 import { fethAllArticles, addReceivedArticle } from "../redux/actions";
 import { useSocket } from "../components/SocketProvider";
 import ListArticle from "../components/ListArticle";
@@ -34,11 +33,11 @@ const GetArticle = () => {
   return (
     <div className={commonStyles.mainContainer}>
       <div className={commonStyles.contentsContainer}>
-        <div className={postArticleStyles.mainContainer}>
+        <div className={commonStyles.mainChildContainer}>
           <div className={commonStyles.titleContainer}>
             <div className={commonStyles.textAlignCenter}>
               <div className={commonStyles.logoCircleArea}>
-                <img className={`${commonStyles.noSelect} ${commonStyles.white} ${postArticleStyles.logo}`} src={Icon} />
+                <img className={`${commonStyles.noSelect} ${commonStyles.white} ${getArticleStyles.logo}`} src={Icon} />
               </div>
             </div>
             <h3 className={commonStyles.textAlignCenter}>閲覧</h3>
