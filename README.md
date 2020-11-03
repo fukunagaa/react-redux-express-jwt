@@ -40,53 +40,34 @@
   );
   ```
 
-```
-
-
 - postgresql の起動用レコード追加
   - account_table
 
 ```
-
 INSERT INTO account_table (email, name, password, roles, delete_flag) VALUES('admin@example.com', 'admin', '$2b$10$gT32C6vCWUsP41cYKPZC1eHNMiSNlEfWckUox3BHblEqHg4g74GnG', 'USER_ROLE,ADMIN_ROLE', '0');
   INSERT INTO account_table (email, name, password) VALUES('user@example.com', 'user', '$2b$10$gT32C6vCWUsP41cYKPZC1eHNMiSNlEfWckUox3BHblEqHg4g74GnG');
-
 ```
 
+- redis 起動(centos)
+
+```
+$ docker-compose up -d
 ```
 
 - パッケージのインストール
 
 ```
-
-\$ npm install
-
+$ npm install
 ```
 
 - nodemon インストール
 
 ```
-
-\$ npm install -g nodemon
-
+$ npm install -g nodemon
 ```
 
 - サーバ起動
 
 ```
-
-\$ npm run server
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
+$ npm run server
 ```
